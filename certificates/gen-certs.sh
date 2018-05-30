@@ -14,3 +14,6 @@ keytool -exportcert -alias server -file server-public.cer -keystore $SERVER_KEYS
 # Import the client and server public certificates into each others keystore
 keytool -importcert -keystore $CLIENT_KEYSTORE -alias server-public-cert -file server-public.cer -storepass changeme -noprompt
 keytool -importcert -keystore $SERVER_KEYSTORE -alias client-public-cert -file client-public.cer -storepass changeme -noprompt
+
+# Generate a base64 encoded version of the .jks file that can be put in the config server
+openssl base64 -in client.jks -out client.txt
