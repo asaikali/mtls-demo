@@ -1,10 +1,14 @@
 server:
   port: 8443
   ssl:
-    key-store: "classpath:keystore.jks"
-    key-store-password: password
-    key-alias: tomcat
-    client-auth: want
+    key-store: "classpath:server.jks"
+    key-store-password: changeme
+    key-alias: server
+    client-auth: need
+    trust-store: "classpath:server.jks"
+    trust-store-password: changeme
+
+
 security:
   require-ssl: true
 
